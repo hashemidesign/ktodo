@@ -2,10 +2,11 @@ package com.example.ktodo.data.repositories
 
 import ToDoDAO
 import com.example.ktodo.data.models.ToDoTask
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-
+@ViewModelScoped
 class ToDoRepository @Inject constructor(private val toDoDAO: ToDoDAO) {
     val getAllTasks: Flow<List<ToDoTask>> = toDoDAO.getAllTasks()
     val sortByLowPriority: Flow<List<ToDoTask>> = toDoDAO.sortByLowPriority()
